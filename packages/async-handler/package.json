@@ -1,6 +1,6 @@
 {
   "name": "@chimanos/express-async-handler",
-  "version": "0.0.1",
+  "version": "1.0.0-0",
   "type": "module",
   "exports": "./dist/index.js",
   "license": "MIT",
@@ -17,7 +17,9 @@
     "dev:test": "mocha --watch --parallel",
     "lint": "eslint src",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
-    "prepublishOnly": "yarn typecheck && yarn lint && yarn test",
+    "integrity": "yarn typecheck && yarn lint && yarn test",
+    "preversion": "yarn integrity",
+    "prepublishOnly": "yarn integrity",
     "prepack": "yarn build"
   },
   "devDependencies": {
