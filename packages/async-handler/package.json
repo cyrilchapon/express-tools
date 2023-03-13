@@ -12,10 +12,13 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit",
     "test": "mocha",
     "dev:test": "mocha --watch --parallel",
     "lint": "eslint src",
-    "format": "prettier --write \"src/**/*.{ts,tsx}\""
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "prepublishOnly": "yarn typecheck && yarn lint && yarn test",
+    "prepack": "yarn build"
   },
   "devDependencies": {
     "@types/chai": "^4.3.4",
